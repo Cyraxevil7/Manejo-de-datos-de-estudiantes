@@ -20,9 +20,10 @@ public:
     string lastname;
     vector<int> nota;
     int id;
-    double ponderation;
+    //double ponderation;
+    
 
-    Student(string n, string lastname, int i, double p ){
+    Student(string n, string lastname, int i, double p) {
         name = n;
         this->lastname = lastname;
         id = i;
@@ -31,6 +32,22 @@ public:
     void addNote(int note) {
         nota.push_back(note);
     }
+    
+    
+    double calculatePonderation(int cantidadDeNotas) {
+        double sum = 0;
+        for (int i = 0; i < cantidadDeNotas; i++) {
+            int nota;
+            cout<<"Ingrese la nota "<<i+1<<": ";
+            cin>>nota;
+            this->nota.push_back(nota);
+            sum += nota;
+        }
+        return sum / cantidadDeNotas;
+    }
+    double ponderation = calculatePonderation(nota.size());
+
+    
     
         
 };
@@ -255,18 +272,20 @@ void reWriteFile(){
     
 }
 void createStudent(){
+    Student newStudent = Student("","",0, 0.0);
     int id;
     string name,lastname;
+    int cantidadDeNotas;
     double ponderation;
 
     cout<<"Agrege el nombre y apellido del estudiante todo en minusculas: ";
     cin>>name>>lastname;
     cout<<"agrege el numero de cedula del estudiante: ";
     cin>>id;
-    cout<<"agrege el promedio del estudiante";
-    cin>>ponderation;
-
-    Student newStudent = Student(name,lastname,id,ponderation);
+    cout<<"agrege el promedio del estudiante: ";
+    cin>>cantidadDeNotas;
+    ponderation = newStudent.calculatePonderation(cantidadDeNotas);
+    newStudent = Student(name,lastname,id,ponderation);
     addStudent(newStudent);
 
 };
