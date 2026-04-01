@@ -37,6 +37,7 @@ public:
 
 vector<Student> listStudents;
 
+//Funciones
 bool foundStudent(int ci);
 void addStudent(Student s);
 void modifyStudent(int ci);
@@ -44,6 +45,7 @@ int readStudent(int ci);
 void readFile();
 void reWriteFile();
 void createStudent();
+void mostrarEstudiantes();
 
 
 
@@ -61,7 +63,8 @@ int main(){
         cout<<"1. Agregar un estudiante\n";
         cout<<"2. Verificar los datos de un estudiante\n";
         cout<<"3. Modificar los datos de un estudiantes\n";
-        cout<<"4. Salir del programa\n";
+        cout<<"4. Mostrar todos los estudiantes\n";
+        cout<<"0. Salir del programa\n";
         cin>>opcion;
 
         switch (opcion)
@@ -82,6 +85,9 @@ int main(){
             modifyStudent(ci);
             break;
         case 4:
+            mostrarEstudiantes();
+            break;
+        case 0:
             cout<<"saliendo....\n";
             runing = false;
             break;
@@ -264,3 +270,14 @@ void createStudent(){
     addStudent(newStudent);
 
 };
+
+void mostrarEstudiantes(){
+    for (long long unsigned int i = 0; i < listStudents.size(); i++)
+    {
+        cout<<"Nombre: "<<listStudents[i].name<<endl;
+        cout<<"Apellido: "<<listStudents[i].lastname<<endl;
+        cout<<"cedula: "<<listStudents[i].id<<endl;
+        cout<<"Promedio: "<<listStudents[i].ponderation<<endl;
+    }
+    
+}
