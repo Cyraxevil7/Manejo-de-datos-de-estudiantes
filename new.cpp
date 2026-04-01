@@ -45,7 +45,7 @@ void readFile();
 void reWriteFile();
 void createStudent();
 
-ofstream file("prueba.txt");
+
 
 
 
