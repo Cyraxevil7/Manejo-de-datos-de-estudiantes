@@ -282,7 +282,7 @@ void createStudent(){
     cin>>name>>lastname;
     cout<<"agrege el numero de cedula del estudiante: ";
     cin>>id;
-    cout<<"agrege el promedio del estudiante: ";
+    cout<<"agrege la cantidad de notas del estudiante: ";
     cin>>cantidadDeNotas;
     ponderation = newStudent.calculatePonderation(cantidadDeNotas);
     newStudent = Student(name,lastname,id,ponderation);
@@ -293,10 +293,12 @@ void createStudent(){
 void mostrarEstudiantes(){
     for (long long unsigned int i = 0; i < listStudents.size(); i++)
     {
+        cout<<"------------------------------\n";
         cout<<"Nombre: "<<listStudents[i].name<<endl;
         cout<<"Apellido: "<<listStudents[i].lastname<<endl;
         cout<<"cedula: "<<listStudents[i].id<<endl;
         cout<<"Promedio: "<<listStudents[i].ponderation<<endl;
+        cout<<"------------------------------\n";
     }
     
 }
